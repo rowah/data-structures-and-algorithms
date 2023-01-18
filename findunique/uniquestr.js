@@ -88,3 +88,27 @@ const isUnique1 = (arr) => {
 
 console.log(isUnique([1, 2, 3]) === true);
 console.log(isUnique([1, 1, 3]) === false);
+
+//TASK
+//Given an array of numbers, sort them without returning any duplicate values in the sorted array
+// uniqSort([4, 2, 2, 3, 2, 2, 2]) => [2, 3, 4]
+
+function uniqSort(arr) {
+  //create an empty obj for tracking the arr elements
+  let arrObj = {};
+  //create array to push value once starting with the first arr element as its element (assuming the very first element cannot be a duplicate)
+  let sortedArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    //if the element is not in the arrObj yet: push it to the sortedArr and set its value in the arrObj to true after the push
+    if (!arrObj[arr[i]]) {
+      //linear time complexity
+      sortedArr.push(arr[i]); //linear time complexity
+      arrObj[arr[i]] = true; //linear time complexity
+    }
+    console.log(arrObj);
+  }
+  return sortedArr.sort((a, b) => a - b);
+}
+
+uniqSort([4, 2, 2, 3, 2, 2, 2]);
